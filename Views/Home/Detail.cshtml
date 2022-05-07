@@ -1,0 +1,37 @@
+﻿@model Watch
+@{
+    ViewData["Title"] = "Detail";
+}
+
+<h1>Detay Sayfası</h1>
+
+<table class="table ms-3">
+    <thead>
+        <tr>
+
+            <th scope="col">Ürün Resim</th>
+            <th scope="col">Ürün Adı</th>
+            <th scope="col">Ürün Marka</th>
+            <th scope="col">Ürün Renk</th>
+            <th scope="col">Ürün Fiyat</th>
+
+        </tr>
+    </thead>
+        <tbody>
+            <tr>
+
+                <td>
+                    <img src="~/img/@Model.Img" />
+                </td>
+
+                <td>@Model.Name</td>
+                <td>@Model.Brand</td>
+                <td>@Model.color</td>
+                <td>@Model.Price</td>
+
+                <td>
+                    <a href="/Home/Delete/@Model.Id" class="btn btn-success btn-sm">Sil</a>
+                </td>
+            </tr>
+        </tbody>
+</table>

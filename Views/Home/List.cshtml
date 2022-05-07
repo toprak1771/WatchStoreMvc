@@ -1,0 +1,53 @@
+﻿@model List<Watch>
+@{
+    ViewData["Title"] = "List";
+}
+
+<h1>List</h1>
+
+
+<table class="table ms-3">
+    <thead>
+        <tr>
+
+            <th scope="col">Ürün Resim</th>
+            <th scope="col">Ürün Adı</th>
+            <th scope="col">Ürün Marka</th>
+            <th scope="col">Ürün Renk</th>
+            <th scope="col">Ürün Fiyat</th>
+            <th scope="col">Satıcı</th>
+
+
+        </tr>
+    </thead>
+
+    @foreach (var item in Model)
+    {
+    
+            <tbody>
+                <tr>
+
+                    <td>
+                        <img src="~/img/@item.Img" />
+                    </td>
+
+                    <td>@item.Name</td>
+
+                    <td>@item.Brand</td>
+
+                    <td>@item.color</td>
+                    <td>@item.Price</td>
+                   
+                    @*<td>@ViewBag.newseller</td>*@
+
+                    <td>
+                        <a href="/Home/Detail/@item.Id" class="btn btn-success btn-sm">Detay</a>
+
+                    <td>
+                        <a href="/Home/Delete/@item.Id" class="btn btn-success btn-sm">Sil</a>
+                    </td>
+                </tr>
+            </tbody>
+        }
+    
+</table>

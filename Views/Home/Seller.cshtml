@@ -1,0 +1,30 @@
+﻿@model Seller
+@{
+    ViewData["Title"] = "Seller";
+}
+
+<h1>Seller</h1>
+
+<form method="post" asp-action="Seller">
+    <div class="mb-3">
+        <label for="Name" class="form-label">Name:</label>
+        <input type="text" class="form-control" asp-for="Name">
+
+    </div>
+    <div class="mb-3">
+        <label for="Brand" class="form-label">Star Rate:</label>
+        <input type="number" class="form-control" asp-for="StarRate">
+    </div>
+  
+    <button type="submit" class="btn btn-primary">Save</button>
+</form>
+
+<ul class="list-group">
+    <li class="list-group-item">Satıcılar ----------- SatıcıPuanı</li>
+    @foreach (var seller in ViewBag.sellers)
+    {
+        <li class="list-group-item">@seller.Name ------- @seller.StarRate</li>
+        
+    }
+
+</ul>
