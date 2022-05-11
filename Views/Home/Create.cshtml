@@ -5,29 +5,29 @@
 <form method="post" asp-action="Create">
     <div class="mb-3">
         <label for="Name" class="form-label">Name:</label>
-        <input type="text" class="form-control" asp-for="@Model.watch.Name">
+        <input type="text" class="form-control" asp-for="watch.Name">
 
     </div>
     <div class="mb-3">
         <label for="Brand" class="form-label">Brand</label>
-        <input type="text" class="form-control" asp-for="@Model.watch.Brand">
+        <input type="text" class="form-control" asp-for="watch.Brand">
     </div>
     <div class="mb-3">
         <label for="Color" class="form-label">Color</label>
-        <input type="text" class="form-control" asp-for="@Model.watch.color">
+        <input type="text" class="form-control" asp-for="watch.color">
     </div>
 
     <div class="mb-3">
         <label for="Color" class="form-label">Price</label>
-        <input type="text" class="form-control" asp-for="@Model.watch.Price">
+        <input type="text" class="form-control" asp-for="watch.Price">
     </div>
     <div class="mb-3">
         <label for="Color" class="form-label">IMG URL</label>
-        <input type="text" class="form-control" asp-for="@Model.watch.Img">
+        <input type="text" class="form-control" asp-for="watch.Img">
     </div>
     <div class="mb-3">
         <label for="seller" class="form-label">Seller:</label>
-        <select name="seller" id="seller">
+        <select id="seller" asp-for="SellerIds">
             @foreach (var seller in Model.sellers)
             {
                 <option value="@seller.Id">@seller.Name</option>
@@ -39,3 +39,9 @@
     </div>
 </form>
 
+@section  Scripts {
+<script>// In your Javascript (external .js resource or <script> tag)
+    $(document).ready(function () {
+        $('#seller').select2();
+    });</script>
+}

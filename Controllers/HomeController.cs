@@ -33,6 +33,7 @@ namespace WatchStoreMvcDeneme.Controllers
             SellerWatchViewModel sellerWatch = new SellerWatchViewModel();
             sellerWatch.watches = _context.Watches.ToList();
             sellerWatch.sellers = _context.Sellers.ToList();
+            
 
             
             return View(sellerWatch);
@@ -59,14 +60,14 @@ namespace WatchStoreMvcDeneme.Controllers
                 _context.WatchSellers.Add(watchSeller);
             });
             _context.SaveChanges();
-            var watches = _context.Watches.ToList();          
-            return View("List",sellerWatchView);
+            //var watches = _context.Watches.ToList();          
+            return RedirectToAction("List");
         }
 
         public IActionResult List()
         {
-            
-            return View();
+           var result = _context.WatchSellers.Include(x => x.Seller).Include(x => x.Watch).ToList();
+            return View(result);
         }
         public IActionResult Seller()
         {
@@ -94,8 +95,9 @@ namespace WatchStoreMvcDeneme.Controllers
 
         public IActionResult Detail(int id)
         {
-            var watch = _context.Watches.Where(i => i.Id == id).FirstOrDefault();
-            return View("Detail",watch);
+            var result = _context.WatchSellers.Include(x => x.Seller).Where(t => t.Id == id).Include(r => r.Watch).Where(u => u.Id == id).FirstOrDefault();
+            //var watch = _context.Watches.Where(i => i.Id == id).FirstOrDefault();
+            return View("Detail",result);
         }
         public IActionResult Update()
         {

@@ -1,4 +1,4 @@
-﻿@model List<Watch>
+﻿@model List<WatchSeller>
 @{
     ViewData["Title"] = "List";
 }
@@ -28,17 +28,16 @@
                 <tr>
 
                     <td>
-                        <img src="~/img/@item.Img" />
+                        <img src="~/img/@item.Watch.Img" />
                     </td>
 
-                    <td>@item.Name</td>
+                    <td>@item.Watch.Name</td>
 
-                    <td>@item.Brand</td>
+                    <td>@item.Watch.Brand</td>
 
-                    <td>@item.color</td>
-                    <td>@item.Price</td>
-                   
-                    @*<td>@ViewBag.newseller</td>*@
+                    <td>@item.Watch.color</td>
+                    <td>@item.Watch.Price</td>
+                    <td>@item.Seller.Name</td>
 
                     <td>
                         <a href="/Home/Detail/@item.Id" class="btn btn-success btn-sm">Detay</a>

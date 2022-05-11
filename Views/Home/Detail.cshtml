@@ -1,4 +1,4 @@
-﻿@model Watch
+﻿@model WatchSeller
 @{
     ViewData["Title"] = "Detail";
 }
@@ -14,6 +14,7 @@
             <th scope="col">Ürün Marka</th>
             <th scope="col">Ürün Renk</th>
             <th scope="col">Ürün Fiyat</th>
+            <th scope="col">Satıcı</th>
 
         </tr>
     </thead>
@@ -21,13 +22,14 @@
             <tr>
 
                 <td>
-                    <img src="~/img/@Model.Img" />
+                    <img src="~/img/@Model.Watch.Img" />
                 </td>
 
-                <td>@Model.Name</td>
-                <td>@Model.Brand</td>
-                <td>@Model.color</td>
-                <td>@Model.Price</td>
+                <td>@Model.Watch.Name</td>
+                <td>@Model.Watch.Brand</td>
+                <td>@Model.Watch.color</td>
+                <td>@Model.Watch.Price</td>
+                <td>@Model.Seller.Name</td>
 
                 <td>
                     <a href="/Home/Delete/@Model.Id" class="btn btn-success btn-sm">Sil</a>

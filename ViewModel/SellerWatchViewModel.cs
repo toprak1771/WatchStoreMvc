@@ -12,7 +12,7 @@ namespace WatchStoreMvcDeneme.ViewModel
         public List<Watch> watches { get; set; }
         public Seller seller { get; set; }
         public List<Seller> sellers { get; set; }
-        public List<int> SellerIds { get; set; } = new List<int>();
+        public List<int> SellerIds { get; set; }
 
     }
 }
